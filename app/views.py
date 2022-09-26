@@ -546,7 +546,59 @@ def addemp_group2(request):
 def alter_payrol_employee_edit(request,pk):
     std=Create_employeegroup.objects.all()
     p=Employee.objects.get(id=pk)
-    return render(request,'alter_payrol_employee_edit.html',{'std':std,'p':p})
+    p1=add_bank.objects.get(id=pk)
+    p2=E_found_trasfer.objects.get(id=pk)
+    return render(request,'alter_payrol_employee_edit.html',{'std':std,'p':p,'p1':p1,'p2':p2})
+
+def alter_payrol_employee_edit2(request,pk):
+    std=Employee.objects.get(id=pk)
+    std.name=request.POST.get('name')
+    std.alias=request.POST.get('alias')
+    std.under=request.POST.get('under')
+    std.date_join=request.POST.get('join')
+    std.defn_sal=request.POST.get('sal')
+    std.emp_name=request.POST.get('empname')
+    std.emp_desg=request.POST.get('desig')
+    std.fnctn=request.POST.get('fn')
+    std.location=request.POST.get('loc')
+    std.gender=request.POST.get('gen')
+    std.dob=request.POST.get('dob')
+    std.blood=request.POST.get('blood')
+    std.parent_name=request.POST.get('prnts')
+    std.spouse_name=request.POST.get('spouse')
+    std.address=request.POST.get('adrs')
+    std.number=request.POST.get('phone')
+    std.email=request.POST.get('email')
+    std.inc_tax_no=request.POST.get('taxno')
+    std.aadhar_no=request.POST.get('aadhar')
+    
+    std.uan=request.POST.get('uan')
+    std.pfn=request.POST.get('pfn')
+    std.pran=request.POST.get('pran')
+    std.esin=request.POST.get('esin')
+    std.bankdtls=request.POST.get('bank')
+    std.save()
+
+    std1=add_bank.objects.get(id=pk)
+    std1.Acount_No=request.POST.get('acount')
+    std1.IFSC_code=request.POST.get('ifsc')
+    std1.Bank_name=request.POST.get('bank_name')
+    std1.Branch_name=request.POST.get('branch_name')
+    std1.Transaction_type=request.POST.get('Transaction_type')
+    std1.save()
+
+    std2=add_bank.objects.get(id=pk)
+    std2.Acount_No=request.POST.get('acnumber')
+    std2.IFSC_code=request.POST.get('ifsccode')
+    std2.Bank_name=request.POST.get('bank_name2')
+    std2.Cheque=request.POST.get('cheque')
+    std2.save()
+    
+    return redirect('alter_payrol_employee')
+
+
+    
+
 
 def salary1(request):
     if 't_id' in request.session:

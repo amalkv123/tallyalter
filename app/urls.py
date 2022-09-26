@@ -71,7 +71,8 @@ urlpatterns = [
     path('load',views.load,name='load'),
     path('load_calculation',views.load_calculation,name='load_calculation'),
     path('alter_payrol_employee_edit/<int:pk>',views.alter_payrol_employee_edit,name='alter_payrol_employee_edit'),
-    #path('payvoucher',views.payvoucher,name='payvoucher'),
+    path('alter_payrol_employee_edit2/<int:pk>',views.alter_payrol_employee_edit2,name='alter_payrol_employee_edit2'),
+    #path('payvoucher',views.payvoucher,name='payvoucher
     #path('payvoucher',views.payvoucher,name='payvoucher'),
    
 

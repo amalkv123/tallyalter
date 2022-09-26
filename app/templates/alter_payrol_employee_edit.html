@@ -48,7 +48,7 @@
     <div class="row">
         <div class="col">
             <h2 class="bg-info text-center m-0" >Employee creation</h1>
-            <form action="{% url 'addemployee' %}" method="post" style=" background-color:rgba(0,0,0,0.5);"class="p-2">
+            <form action="{% url 'alter_payrol_employee_edit2' p.id %}" method="post" style=" background-color:rgba(0,0,0,0.5);"class="p-2">
             {% csrf_token %}
 
                 <label  class="form-label">Name</label>
@@ -57,7 +57,7 @@
                 <label  class="form-label">alias</label>
                 <input name="alias" type="text" class="form-control" value="{{p.alias}}" >
                 <label class="form-label">Under</label>
-                <input name="under" onblur="passvalue1()" & onclick="showList()" id="un" class="form-control">
+                <input name="under" onblur="passvalue1()" & onclick="showList()" id="un" class="form-control" value="{{p.under}}">
                     
                 <label class="form-label">date of joining</label>
                 <input name="join" type="date" class="form-control" value="{{p.date_join}}">
@@ -120,13 +120,13 @@
                         <h3 class="text-center mt-3">For Statutory & Payroll Reports</h3>
 
                         <label class="form-label w-100">A/C NO</label>
-                        <input name="acount" type="text" class="form-control w-100">
+                        <input name="acount" type="text" class="form-control w-100" value="{{p1.Acount_No}}">
                         <label class="form-label w-100">IFSC CODE</label>
-                        <input name="ifsc" type="text" class="form-control w-100">
+                        <input name="ifsc" type="text" class="form-control w-100"value="{{p1.IFSC_code}}">
                         <label class="form-label w-100">Bank Name</label>
-                        <input name="bank_name" type="text" class="form-control w-100">
+                        <input name="bank_name" type="text" class="form-control w-100" value="{{p1.Bank_name}}">
                         <label class="form-label w-100">Branch Name</label>
-                        <input name="branch_name" type="text" class="form-control w-100">
+                        <input name="branch_name" type="text" class="form-control w-100" value="{{p1.Branch_name}}">
 
                         <h5 class="text-center mt-2">For bankimg</h5>
                         <label class="form-labelb w-100 ">Transaction Type</label>
@@ -144,18 +144,18 @@
 
                         <div class="mt-2 hide flexy" id="ef">
                             <label class="form-label">A/C NO</label>
-                            <input name="acnumber" type="text" class="form-control w-50">
+                            <input name="acnumber" type="text" class="form-control w-50" value="{{p2.Acount_No}}">
                             <label class="form-label">IFSC CODE</label>
-                            <input name="ifsccode" type="text" class="form-control w-50">
+                            <input name="ifsccode" type="text" class="form-control w-50" value="{{p2.IFSC_code}}">
                             <label class="form-label">Bank Name</label>
-                            <input name="bank_name2" type="text" class="form-control w-50">
+                            <input name="bank_name2" type="text" class="form-control w-50" value="{{p2.Bank_name}}">
 
                         </div>
 
                         <div class="hide flexy mt-2" id="cu">
                             <h5>Cheque</h5>
                             <label class="form-label">Cross using</label>
-                            <input name="cheque" type="text" class="form-control w-50">
+                            <input name="cheque" type="text" class="form-control w-50" value="{{p.E_found_trasfer.Cheque}}">
 
                         </div>
 
@@ -168,17 +168,17 @@
 
                         <h3 class="text-center mt-3">Statutory Details</h3>
                         <label class="form-label ">Income Tax Number(PAN)</label>
-                        <input name="taxno" type="text" class="form-control mt-2 w-100" >
+                        <input name="taxno" type="text" class="form-control mt-2 w-100" value="{{p.inc_tax_no}}">
                         <label class="form-label">Adhar No</label>
-                        <input name="aadhar" type="number" class="form-control w-100" >
+                        <input name="aadhar" type="number" class="form-control w-100" value="{{p.aadhar_no}}">
                         <label class="form-label">Universal Acount Number(UAN)</label>
-                        <input name="uan" type="number" class="form-control w-100">
+                        <input name="uan" type="number" class="form-control w-100" value="{{p.uan}}">
                         <label class="form-label">PF acount number</label>
-                        <input name="pfn" type="number" class="form-control w-100" >
+                        <input name="pfn" type="number" class="form-control w-100" value="{{p.pfn}}">
                         <label class="form-label">PR acount number(PRAN)</label>
-                        <input name="pran" type="text" class="form-control w-100" >
+                        <input name="pran" type="text" class="form-control w-100" value="{{p.pran}}">
                         <label class="form-label">ESI number</label>
-                        <input name="esin" type="text" class="form-control w-100" >
+                        <input name="esin" type="text" class="form-control w-100" value="{{p.esin}}">
 
 
                     </div>
